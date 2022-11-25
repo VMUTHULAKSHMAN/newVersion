@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RepoDetailsService {
 
-    private token = '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';
+    private token = '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';
     private url = 'https://api.github.com/user/repos';
     constructor(private httpClient: HttpClient) {}
     getRepoDetails(page: number) {
