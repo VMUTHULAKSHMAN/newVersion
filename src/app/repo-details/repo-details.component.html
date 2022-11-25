@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <table class="table" id="repo">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Node Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Full Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+        *ngFor="
+          let repoDetails of RepoDetails
+            | paginate
+              : {
+                itemsPerPage: 10,
+                currentPage: page,
+                totalItems: totalRepoItems
+                }
+        "
+        >
+          <td scope="row" style="padding-right: 30px;">{{ repoDetails.id }}</td>
+          <td style="padding-right: 30px;">{{ repoDetails.node_id }}</td>
+          <td style="padding-right: 30px;">{{ repoDetails.name }}</td>
+          <td style="padding-right: 30px;">{{ repoDetails.full_name }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+      <pagination-controls
+        (pageChange)="renderPage($event)"
+      ></pagination-controls>
+    </div>
+  </div>
